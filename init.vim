@@ -39,7 +39,7 @@ call plug#end()
 lua require('config')
 filetype plugin indent on
 syntax enable
-let g:vimtex_view_general_viewer = 'mupdf'
+" let g:vimtex_view_general_viewer = 'mupdf'
 let g:vimtex_compiler_method = 'latexmk'
 let g:deoplete#enable_at_startup = 1
 " call deoplete#custom#var('omni', 'input_patterns', {'tex': g:vimtex#re#deoplete})
@@ -78,10 +78,10 @@ nnoremap .l :VimtexView<cr>
 
 " navigating split
 " Make navigating around splits easier
-nnoremap <C-Down> <C-w><C-j>
-nnoremap <C-Up> <C-w><C-k>
-nnoremap <C-Left> <C-w><C-h>
-nnoremap <C-Right> <C-w><C-l>
+nnoremap <C-s> <C-w><C-j>
+nnoremap <C-w> <C-w><C-k>
+nnoremap <C-a> <C-w><C-h>
+nnoremap <C-d> <C-w><C-l>
 
 " VimTeX highlight groups
 hi texCmd guifg=#ad3da4 guibg=NONE gui=NONE ctermfg=127 ctermbg=NONE cterm=NONE

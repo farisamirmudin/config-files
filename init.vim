@@ -13,7 +13,7 @@ Plug 'https://github.com/preservim/tagbar'
 Plug 'http://github.com/tpope/vim-surround'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/tpope/vim-commentary'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/plenary.nvim'
@@ -44,16 +44,19 @@ let g:vimtex_compiler_method = 'latexmk'
 let g:deoplete#enable_at_startup = 1
 " call deoplete#custom#var('omni', 'input_patterns', {'tex': g:vimtex#re#deoplete})
 
+" ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
+" nerdtree
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 
+" tagbar
 nmap <F8> :TagbarToggle<CR>
 
 " autocompletion

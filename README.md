@@ -1,4 +1,4 @@
-# config-files
+# nvim config-files
 
 Install vim plug
 ```

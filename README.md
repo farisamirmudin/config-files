@@ -13,10 +13,6 @@ Install msgpack and pynvim for deoplete plugin
 ```
 python3 -m pip install msgpack pynvim
 ```
-After ```PlugInstall``` relaunch nvim and run:
-```
-:UpdateRemotePlugins
-```
 
 Dependencies to install telescope-fzf
 ```
@@ -32,4 +28,8 @@ For more informations see [server_configurations.md](https://github.com/neovim/n
 To install latex language server
 ```
 brew install ltex-ls
+```
+After ```PlugInstall``` relaunch nvim and run:
+```
+:UpdateRemotePlugins
 ```

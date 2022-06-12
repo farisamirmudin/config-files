@@ -13,7 +13,7 @@ Install msgpack and pynvim for deoplete plugin
 ```
 python3 -m pip install msgpack pynvim
 ```
-If deoplete shows error at initialisation
+After ```PlugInstall``` relaunch nvim and run:
 ```
 :UpdateRemotePlugins
 ```

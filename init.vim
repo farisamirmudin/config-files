@@ -13,9 +13,7 @@ Plug 'https://github.com/preservim/tagbar'
 Plug 'http://github.com/tpope/vim-surround'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/tpope/vim-commentary'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/plenary.nvim'
@@ -32,7 +30,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-" Plug 'preservim/vimux'
+Plug 'preservim/vimux'
 Plug 'arzg/vim-colors-xcode'
 
 set encoding=UTF-8
@@ -41,7 +39,7 @@ call plug#end()
 lua require('config')
 filetype plugin indent on
 syntax enable
-let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_viewer = 'mupdf'
 let g:vimtex_compiler_method = 'latexmk'
 let g:deoplete#enable_at_startup = 1
 " call deoplete#custom#var('omni', 'input_patterns', {'tex': g:vimtex#re#deoplete})

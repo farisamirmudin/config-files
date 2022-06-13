@@ -1,10 +1,10 @@
 :set number
 :set relativenumber
 :set autoindent
-:set tabstop=2
-:set shiftwidth=2
+:set tabstop=4
+:set shiftwidth=4
 :set smarttab
-:set softtabstop=2
+:set softtabstop=4
 :set mouse=a
 
 call plug#begin()
@@ -32,6 +32,9 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'preservim/vimux'
 Plug 'arzg/vim-colors-xcode'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 set encoding=UTF-8
 call plug#end()
@@ -83,18 +86,18 @@ nnoremap <C-w> <C-w><C-k>
 nnoremap <C-a> <C-w><C-h>
 nnoremap <C-d> <C-w><C-l>
 
-" VimTeX highlight groups
-hi texCmd guifg=#ad3da4 guibg=NONE gui=NONE ctermfg=127 ctermbg=NONE cterm=NONE
-hi! link texMathEnvArgName texEnvArgName
-hi! link texMathZone LocalIdent
-hi! link texMathZoneEnv texMathZone
-hi! link texMathZoneEnvStarred texMathZone
-hi! link texMathZoneX texMathZone
-hi! link texMathZoneXX texMathZone
-hi! link texMathZoneEnsured texMathZone
-
-" Small tweaks
-hi! link QuickFixLine Normal
-hi! link qfLineNr Normal
-hi! link EndOfBuffer LineNr
-hi! link Conceal LocalIdent
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_theme='jellybeans'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.colnr = ' '
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' '
+let g:airline_symbols.maxlinenr = ' '
+let g:airline_symbols.dirty=' '

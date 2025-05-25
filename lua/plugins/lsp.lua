@@ -5,6 +5,7 @@ return {
 			'williamboman/mason.nvim',
 			'williamboman/mason-lspconfig.nvim',
 			'saghen/blink.cmp',
+			"artemave/workspace-diagnostics.nvim"
 		},
 		config = function()
 			vim.diagnostic.config({
@@ -56,9 +57,13 @@ return {
 				},
 				handlers = {
 					function(server_name)
-						require('lspconfig')[server_name].setup({ capabilities = capabilities })
+						require('lspconfig')[server_name].setup({
+							capabilities = capabilities,
+							on_attach = function(client, bufnr)
+								require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+							end
+						})
 					end,
-
 				},
 			})
 		end,

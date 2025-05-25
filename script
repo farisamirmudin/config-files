@@ -1,14 +1,14 @@
 #!/bin/bash
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+script_abs_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 NVIM_TARGET=~/.config/nvim
 WEZTERM_TARGET=~/.config/wezterm
 STARSHIP_TARGET=~/.config/starship.toml
 
-NVIM_SOURCE="$DIR/nvim"
-WEZTERM_SOURCE="$DIR/wezterm"
-STARSHIP_SOURCE="$DIR/starship/starship.toml"
+NVIM_SOURCE="$script_abs_path/nvim"
+WEZTERM_SOURCE="$script_abs_path/wezterm"
+STARSHIP_SOURCE="$script_abs_path/starship/starship.toml"
 
 echo "Removing existing config files..."
 rm -rf "$NVIM_TARGET"
@@ -20,5 +20,5 @@ ln -s "$NVIM_SOURCE" "$NVIM_TARGET"
 ln -s "$WEZTERM_SOURCE" "$WEZTERM_TARGET"
 ln -s "$STARSHIP_SOURCE" "$STARSHIP_TARGET"
 
-echo "✅ Config symlinks set up successfully from $DOTFILES_DIR."
+echo "✅ Config symlinks set up."
 

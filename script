@@ -3,22 +3,32 @@
 script_abs_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 NVIM_TARGET=~/.config/nvim
-WEZTERM_TARGET=~/.config/wezterm
-STARSHIP_TARGET=~/.config/starship.toml
+TMUX_TARGET=~/.tmux.conf
+# WEZTERM_TARGET=~/.config/wezterm
+# STARSHIP_TARGET=~/.config/starship.toml
 
 NVIM_SOURCE="$script_abs_path/nvim"
-WEZTERM_SOURCE="$script_abs_path/wezterm"
-STARSHIP_SOURCE="$script_abs_path/starship/starship.toml"
+TMUX_SOURCE="$script_abs_path/tmux.conf"
+# WEZTERM_SOURCE="$script_abs_path/wezterm"
+# STARSHIP_SOURCE="$script_abs_path/starship/starship.toml"
+
+if command -v git >/dev/null 2>&1; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+  echo "Warning: 'git' is not installed. Your tmux configuration might not work properly since TPM (tmux plugin manager) can't be installed." >&2
+fi
 
 echo "Removing existing config files..."
 rm -rf "$NVIM_TARGET"
-rm -rf "$WEZTERM_TARGET"
-rm -f "$STARSHIP_TARGET"
+rm -rf "$TMUX_TARGET"
+# rm -rf "$WEZTERM_TARGET"
+# rm -f "$STARSHIP_TARGET"
 
 echo "Creating symlinks..."
 ln -s "$NVIM_SOURCE" "$NVIM_TARGET"
-ln -s "$WEZTERM_SOURCE" "$WEZTERM_TARGET"
-ln -s "$STARSHIP_SOURCE" "$STARSHIP_TARGET"
+ln -s "$TMUX_SOURCE" "$TMUX_TARGET"
+# ln -s "$WEZTERM_SOURCE" "$WEZTERM_TARGET"
+# ln -s "$STARSHIP_SOURCE" "$STARSHIP_TARGET"
 
 echo "✅ Config symlinks set up."
 

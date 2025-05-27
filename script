@@ -25,7 +25,7 @@ rm -rf "$TMUX_TARGET"
 # rm -f "$STARSHIP_TARGET"
 
 echo "Creating symlinks..."
-ln -s "$NVIM_SOURCE" "$NVIM_TARGET"
+# ln -s "$NVIM_SOURCE" "$NVIM_TARGET"
 ln -s "$TMUX_SOURCE" "$TMUX_TARGET"
 # ln -s "$WEZTERM_SOURCE" "$WEZTERM_TARGET"
 # ln -s "$STARSHIP_SOURCE" "$STARSHIP_TARGET"

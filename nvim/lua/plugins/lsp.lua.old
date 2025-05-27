@@ -1,16 +1,13 @@
 return {
 	{
-		"mason-org/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
 		dependencies = {
-			{ "mason-org/mason.nvim", opts = {} },
-			"neovim/nvim-lspconfig"
+			'williamboman/mason.nvim',
+			'williamboman/mason-lspconfig.nvim',
+			'saghen/blink.cmp',
+			"artemave/workspace-diagnostics.nvim"
 		},
 		config = function()
-			require('mason-lspconfig').setup({
-				automatic_enable = true,
-				ensure_installed = { "lua_ls" },
-			})
-
 			vim.diagnostic.config({
 				virtual_text = true,
 				severity_sort = true,
@@ -30,15 +27,7 @@ return {
 				},
 			})
 
-			vim.lsp.config('lua_ls', {
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
-			})
+			local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 			vim.api.nvim_create_autocmd('LspAttach', {
 				callback = function(event)
@@ -56,11 +45,27 @@ return {
 					vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 				end,
 			})
-		end
-	},
-	{
-		"pmizio/typescript-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {},
+
+			require('mason').setup({})
+			require('mason-lspconfig').setup({
+				automatic_enable = true,
+				ensure_installed = {
+					"lua_ls",
+					"ts_ls",
+					"biome",
+					'eslint'
+				},
+				handlers = {
+					function(server_name)
+						require('lspconfig')[server_name].setup({
+							capabilities = capabilities,
+							on_attach = function(client, bufnr)
+								require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+							end
+						})
+					end,
+				},
+			})
+		end,
 	}
 }

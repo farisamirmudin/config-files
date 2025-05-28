@@ -1,0 +1,25 @@
+gui:
+  border: single
+  theme:
+    lightTheme: false
+    activeBorderColor:
+      - "#7E9CD8" # Fuji Blue
+      - bold
+    inactiveBorderColor:
+      - "#54546D" # Wave Blue 1
+    optionsTextColor:
+      - "#DCD7BA" # Old White
+    selectedLineBgColor:
+      - "#2A2A37" # Surface
+    selectedRangeBgColor:
+      - "#2D4F67" # Darker Blue
+    cherryPickedCommitBgColor:
+      - "#8CABD9" # Light Blue
+    cherryPickedCommitFgColor:
+      - "#1F1F28" # Background
+    unstagedChangesColor:
+      - "#C34043" # Lotus Red
+    defaultFgColor:
+      - "#DCD7BA" # Old White
+    searchingActiveBorderColor:
+      - "#957FB8" # Oni Violet

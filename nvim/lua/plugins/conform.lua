@@ -8,6 +8,7 @@ return {
 					lua = { "stylua" },
 					javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
 					typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
+					bash = { 'shfmt' }
 				},
 				format_on_save = {
 					timeout_ms = 500,

@@ -10,7 +10,12 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("nvim-tree").setup({})
+			require("nvim-tree").setup({
+				filesystem_watchers = {
+					enable = true,
+					debounce_delay = 50,
+				},
+			})
 		end,
 	}
 }

@@ -2,6 +2,13 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		config = function()
+			require("kanagawa").setup({
+				transparent = true,
+				styles = {
+					sidebars = "transparent",
+					floats = "transparent",
+				},
+			})
 			vim.cmd.colorscheme "kanagawa"
 		end
 	},

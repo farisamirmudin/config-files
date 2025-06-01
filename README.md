@@ -1,4 +1,4 @@
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 ### 1. Install [TPM (Tmux Plugin Manager)](https://github.com/tmux-plugins/tpm)
 
@@ -22,3 +22,8 @@ Add the following line to your shell config (e.g. ~/.bashrc, ~/.zshrc):
 export DOCKER_HOST=unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')
 ```
 
+### 4. Install Surfshark (Optional)
+
+```bash
+curl -f https://downloads.surfshark.com/linux/debian-install.sh --output surfshark-install.sh
+```

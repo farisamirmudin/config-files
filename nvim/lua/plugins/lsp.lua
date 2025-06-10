@@ -3,7 +3,18 @@ return {
 		"mason-org/mason-lspconfig.nvim",
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
-			"neovim/nvim-lspconfig"
+			"neovim/nvim-lspconfig",
+			{
+				"folke/lazydev.nvim",
+				ft = "lua", -- only load on lua files
+				opts = {
+					library = {
+						-- See the configuration section for more details
+						-- Load luvit types when the `vim.uv` word is found
+						{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+					},
+				},
+			},
 		},
 		config = function()
 			require('mason-lspconfig').setup({
@@ -30,20 +41,10 @@ return {
 				},
 			})
 
-			vim.lsp.config('lua_ls', {
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
-			})
-
 			vim.api.nvim_create_autocmd('LspAttach', {
 				callback = function(event)
 					local opts = { buffer = event.buf }
-
+					--
 					vim.keymap.set('n', '<leader><space>', vim.lsp.buf.hover, opts)
 					vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 					vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)

@@ -7,10 +7,11 @@ return {
 		},
 		lazy = false,
 		dependencies = {
-			"nvim-tree/nvim-web-devicons",
+			'echasnovski/mini.icons',
 		},
 		config = function()
 			require("nvim-tree").setup({
+				update_focused_file = { enable = true },
 				filesystem_watchers = {
 					enable = true,
 					debounce_delay = 50,

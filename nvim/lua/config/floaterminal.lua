@@ -55,4 +55,4 @@ local toggle_terminal = function()
 end
 
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
-vim.keymap.set('n', '<leader>ftt', '<esc><cmd>Floaterminal<cr>')
+vim.keymap.set('n', '<leader>o', '<esc><cmd>Floaterminal<cr>')

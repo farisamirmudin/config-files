@@ -28,12 +28,6 @@ return {
 			vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 			vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = 'Telescope marks' })
 			vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope keymaps' })
-
-			-- git related
-			vim.keymap.set('n', 'fgs', builtin.git_status, { desc = 'Telescope git status' })
-			vim.keymap.set('n', 'fc', builtin.git_commits, { desc = 'Telescope git commits' })
-			vim.keymap.set('n', 'fgst', builtin.git_stash, { desc = 'Telescope git stash' })
-
 			require("telescope").load_extension("ui-select")
 		end
 	},

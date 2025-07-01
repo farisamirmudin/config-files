@@ -11,6 +11,7 @@ return {
 		},
 		config = function()
 			require("nvim-tree").setup({
+				filters = { git_ignored = false },
 				update_focused_file = { enable = true },
 				filesystem_watchers = {
 					enable = true,

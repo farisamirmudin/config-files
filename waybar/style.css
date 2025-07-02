@@ -1,0 +1,26 @@
+@import "macchiato.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  color: @rosewater;
+  border: none;
+}
+
+window#waybar {
+  background: rgba(0,0,0,0);
+}
+
+#workspaces button.active, button:hover, #custom-shutdown:hover {
+  background: alpha(@mauve, 0.3);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#clock, #cpu, #memory, #network, #wireplumber, #window, #custom-shutdown, #language {
+  padding: 0 8px;
+}
+
+#wireplumber {
+  color: @mauve;
+}

@@ -1,0 +1,55 @@
+{
+  "layer": "top",
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["group/extra"],
+  "modules-right": [
+	  "hyprland/language",
+    "wireplumber",
+    "memory",
+    "cpu",
+    "network",
+    "clock",
+    "custom/shutdown"
+  ],
+	"hyprland/language": {
+    "format": "{}",
+    "format-en": "EN",
+    "format-de": "DE",
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+  "wireplumber": {
+    "format": "VOL {volume}%",
+    "on-click": "pavucontrol",
+		"on-click-right": "systemctl --user restart pipewire pipewire-pulse wireplumber",
+    "max-volume": 150,
+    "scroll-step": 1.5
+  },
+  "memory": {
+    "format": "RAM {percentage}%"
+  },
+  "cpu": {
+    "format": "CPU {usage}%"
+  },
+  "network": {
+    "tooltip": false,
+    "format-wifi": "{essid} ({signalStrength}%)",
+    "format-disconnected": "{ifname} disconnected"
+  },
+  "clock": {
+    "tooltip": false,
+    "format": "{:%H:%M}",
+    "format-alt": "{:%A, %B %d, %Y %R}"
+  },
+  "custom/shutdown": {
+    "on-click": "wlogout -b 2",
+    "format": "WTF",
+    "tooltip": false
+  },
+}
+
